@@ -143,8 +143,6 @@ public class HTMLReporter extends AbstractReporter
         VelocityContext context = createContext();
         context.put(SUITES_KEY, suites);
         context.put(ONLY_FAILURES_KEY, onlyFailures);
-        context.put(SCREENSHOT_DIRECTORY, "screenshot");
-        context.put(SCREENSHOT_HEIGHT, "30%");
         generateFile(new File(outputDirectory, isIndex ? INDEX_FILE : OVERVIEW_FILE),
                      OVERVIEW_FILE + TEMPLATE_EXTENSION,
                      context);
@@ -193,6 +191,8 @@ public class HTMLReporter extends AbstractReporter
                     context.put(FAILED_TESTS_KEY, sortByTestClass(result.getTestContext().getFailedTests()));
                     context.put(SKIPPED_TESTS_KEY, sortByTestClass(result.getTestContext().getSkippedTests()));
                     context.put(PASSED_TESTS_KEY, sortByTestClass(result.getTestContext().getPassedTests()));
+                    context.put(SCREENSHOT_DIRECTORY, "screenshot");
+                    context.put(SCREENSHOT_HEIGHT, "20%");
                     String fileName = String.format("suite%d_test%d_%s", index, index2, RESULTS_FILE);
                     generateFile(new File(outputDirectory, fileName),
                                  RESULTS_FILE + TEMPLATE_EXTENSION,

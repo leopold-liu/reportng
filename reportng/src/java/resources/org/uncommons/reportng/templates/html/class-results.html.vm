@@ -78,11 +78,7 @@
   </td>
 
   <td class="screenshot">
-      #set ($testInstanceName = "")
-      #if ($testResult.testName)
-        #set ($testInstanceName = " ($testResult.testName)")
-      #end
-      <img src="$screenshot/$testInstanceName.png"  alt="$testInstanceName.png" height="$screenshotHeight"/>
+      <img src="${screenshot}/${testResult.testName}.png"  alt="${testInstanceName}.png" height="$screenshotHeight"/>
     </td>
 </tr>
 #end
