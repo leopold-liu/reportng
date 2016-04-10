@@ -70,6 +70,9 @@ public class HTMLReporter extends AbstractReporter
     private static final String ONLY_FAILURES_KEY = "onlyReportFailures";
 
     private static final String REPORT_DIRECTORY = "html";
+    private static final String SCREENSHOT_DIRECTORY = "screenshot";
+    private static final String SCREENSHOT_HEIGHT = "screenshotHeight";
+
 
     private static final Comparator<ITestNGMethod> METHOD_COMPARATOR = new TestMethodComparator();
     private static final Comparator<ITestResult> RESULT_COMPARATOR = new TestResultComparator();
@@ -140,6 +143,8 @@ public class HTMLReporter extends AbstractReporter
         VelocityContext context = createContext();
         context.put(SUITES_KEY, suites);
         context.put(ONLY_FAILURES_KEY, onlyFailures);
+        context.put(SCREENSHOT_DIRECTORY, "screenshot");
+        context.put(SCREENSHOT_HEIGHT, "30%");
         generateFile(new File(outputDirectory, isIndex ? INDEX_FILE : OVERVIEW_FILE),
                      OVERVIEW_FILE + TEMPLATE_EXTENSION,
                      context);
