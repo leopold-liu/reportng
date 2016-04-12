@@ -78,7 +78,7 @@
   </td>
 
   <td class="screenshot">
-      <img src="${screenshot}/${testClass.Name}.png"  alt="${testClass.Name}.png" height="$screenshotHeight"/>
+      <img src="${testClass.Name}.png"  alt="${testClass.Name}.png"/>
     </td>
 </tr>
 #end
